@@ -6,7 +6,7 @@
 
 
 #include <stdio.h>
-#include <unistd.h>
+#include <unistd.h>  // headerfile para agregar delays 
 
 
 // Funcion de busqueda lineal
@@ -14,11 +14,11 @@
 int busqueda_lineal(int array[], int size, int valor) {
     for (int i = 0; i < size; i++){
         if(array[i] == valor){
-            return i + 1;	
+            return i + 1;   // Se le suma 1 a "i" para que la primer posicion del arreglo sea 1 y no 0.
 
 	}
     }
-    return -1;
+    return -1;  // Valor no encontrado
 }
 
 
@@ -31,7 +31,7 @@ int busqueda_binaria(int array[], int size, int valor){
     while(inicio <= fin){
         int medio = inicio + (fin - inicio) / 2;
 	if (array[medio] == valor){
-	    return medio + 1;
+	    return medio + 1; // Se le suma 1 a la variable "medio" para que la primer posicion del arreglo sea 1 y no 0.
 	}
         if (array[medio] < valor){
 	    inicio = medio + 1;	
@@ -40,7 +40,7 @@ int busqueda_binaria(int array[], int size, int valor){
             fin = medio - 1;
 	}
     }
-    return -1;
+    return -1; // Valor no encontrado
 }
 
 
@@ -51,14 +51,14 @@ int busqueda_binaria(int array[], int size, int valor){
 int busqueda_binaria_recursiva(int array[], int inicio, int fin, int valor){
     
     if (inicio > fin) {  
-        return -1;
+        return -1; // Valor no encontrado
     }
      
     int medio = inicio + (fin - inicio) / 2;
    
 
     if (array[medio] == valor) {
-        return medio + 1; 
+        return medio + 1;  // Se le suma 1 a la variable "medio" para que la primer posicion del arreglo sea 1 y no 0.
     }
     
     if (array[medio] < valor){
